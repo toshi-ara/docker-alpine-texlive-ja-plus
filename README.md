@@ -3,9 +3,9 @@
 Minimal TeX Live image for Japanese based on alpine
  plus several CTAN packages
 
-- add several packages to [toshiara/alpine-texlive-ja]
+- add several packages to toshiara/alpine-texlive-ja
+- add [emath](http://emath.s40.xrea.com/)
 
-[paperist/alpine-texlive-ja]: https://hub.docker.com/r/paperist/alpine-texlive-ja
 
 ## Build
 

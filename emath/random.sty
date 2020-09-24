@@ -1,0 +1,22 @@
+% TUGboat, Vol.8 (1987) No.3
+% Random Number Generator by Linear Congruential Method
+%  by Thomas J. Reid, Texas A & M Univ.
+% 
+% Period 50,000
+% Value 0..99  Ex. \rnd\the\rndval
+% Typed by Hideki ISOZAKI isozaki@expert-sun.ntt.junet
+\newcount\rndnum   % Keep State
+\newcount\rndval   % Return Value
+\newcount\rndtemp  % Temporary
+\rndnum=0
+\def\rnd{%
+        \global\multiply\rndnum by 371
+        \global\advance\rndnum by 1
+        \ifnum\rndnum>99999
+                \rndtemp=\rndnum
+                \divide\rndtemp by 100000
+                \multiply\rndtemp by 100000
+                \global\advance\rndnum by -\rndtemp
+        \fi
+        \global\rndval=\rndnum
+        \global\divide\rndval by 1000 \relax}

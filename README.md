@@ -23,5 +23,26 @@ $ docker run --rm -it -v ${PWD}:/workdir toshiara/alpine-texlive-ja-plus platex 
 
 ## License
 
+### Dockerfile
 MIT (c) ARA Toshiaki
+
+### additinal packages for emath
+- bs2yen
+  - No description about license
+  - by Yoshiki OTOBE
+- eclarith, eclbkbox, random
+  - No description about license
+  - by Hideki ISOZAKI
+- jumoline
+  - LaTeX Project Public License version 1 or later
+- kunten2e
+  - No description about license
+  - by Satoshi KINSUI
+- mbboard
+  - from CTAN
+- okuruby
+  - No description about license
+  - by Haruhiko OKUMURA
+- uline--
+  - by Tetsumi YOSHINAGA
 

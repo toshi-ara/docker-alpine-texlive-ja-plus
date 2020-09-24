@@ -1,0 +1,697 @@
+%
+%    訓点資料用スタイル・ファイル  kunten2e.sty
+%
+%    Ver 2.0
+%
+%    作成者：金水　敏  kinsui@let.osaka-u.ac.jp
+%
+%    アスキー版縦書き pLaTeX2e と一緒にお使い下さい．
+%
+% Ver. 2 での改良点(1999年2月)
+% (1) 鈴木卓治（国立歴史民俗博物館:suzuki@rekihaku.ac.jp）氏が作成された
+%     コマンドを追加した。
+% (2) ルビ系のコマンドを、付き位置、フォントサイズによって分類し、
+%     網羅的にした。コマンドの実体と使用する際の名称を分け、使用の
+%     際の名称を変えられるように配慮した。
+% (3) 左右訓のコマンドを改良した。
+%
+% Ver.1 を想定して作られたソースは、修正する必要はない。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  長さコマンドの設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\moziretuhaba}
+\newlength{\moziretuhabaii}
+\newlength{\moziretuhabaiii}
+\newlength{\moziretuhabaiv}
+
+\newlength{\rubysep}
+\newlength{\sougyousep}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   ルビ系コマンド
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  \rubysep  ルビ類の本行とルビの間の間隔の設定
+%
+\setlength{\rubysep}{0ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  ルビ系コマンドの本体
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  この部分のコマンドは、付き位置、フォント
+%%  サイズによって分類する。コマンドの名前は、
+%%  次の原理で構成的に決める。
+%%  (1) 左右
+%%      ・右付き    Migi
+%%      ・左付き    Hidari
+%%      ・左右付き  Sayuu
+%%  (2) 付き方
+%%      ・肩付き    Kata
+%%      ・中央付き  Naka
+%%      ・均等付き  Kinto
+%%  (3) フォント・サイズ
+%%      ・small     Sm
+%%      ・footnotesize  Fn
+%%      ・scriptsize Sc
+%%      ・tiny      Tn
+%%
+%%   コマンド名は、上の名称を順番に
+%%   付けていく。例えば、右肩付きで tiny ならば、
+%%       MigiKataTn{#1}{#2}
+%%   となる。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   右肩付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\MigiKataSm#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\small#2\hfill\crcr#1\hfill\crcr}}}
+
+\def\MigiKataFn#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\footnotesize#2\hfill\crcr#1\hfill\crcr}}}
+
+\def\MigiKataSc#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\scriptsize#2\hfill\crcr#1\hfill\crcr}}}
+
+\def\MigiKataTn#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\tiny#2\hfill\crcr#1\hfill\crcr}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   右中央付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\MigiNakaSm#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\small\hfill#2\hfill\crcr\hfill#1\hfill\crcr}}}
+
+\def\MigiNakaFn#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\footnotesize\hfill#2\hfill\crcr\hfill#1\hfill\crcr}}}
+
+\def\MigiNakaSc#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\scriptsize\hfill#2\hfill\crcr\hfill#1\hfill\crcr}}}
+
+\def\MigiNakaTn#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\tiny\hfill#2\hfill\crcr\hfill#1\hfill\crcr}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   右均等付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\MigiKintoSm#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\small#2\crcr#1\hfill\crcr}}}
+
+\def\MigiKintoFn#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\footnotesize#2\crcr#1\hfill\crcr}}}
+
+\def\MigiKintoSc#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\scriptsize#2\crcr#1\hfill\crcr}}}
+
+\def\MigiKintoTn#1#2{\leavevmode\vbox{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\tiny#2\crcr#1\hfill\crcr}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   左肩付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\HidariKataSm#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr#1\hfill\crcr\small#2\hfill\crcr}}}
+
+\def\HidariKataFn#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr#1\hfill\crcr\footnotesize#2\hfill\crcr}}}
+
+\def\HidariKataSc#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr#1\hfill\crcr\scriptsize#2\hfill\crcr}}}
+
+\def\HidariKataTn#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr#1\hfill\crcr\tiny#2\hfill\crcr}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   左中央付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\HidariNakaSm#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\hfill#1\hfill\crcr\small\hfill#2\hfill\crcr}}}
+
+\def\HidariNakaFn#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\hfill#1\hfill\crcr\footnotesize\hfill#2\hfill\crcr}}}
+
+\def\HidariNakaSc#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\hfill#1\hfill\crcr\scriptsize\hfill#2\hfill\crcr}}}
+
+\def\HidariNakaTn#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip\rubysep
+\ialign{##\crcr\hfill#1\hfill\crcr\tiny\hfill#2\hfill\crcr}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   左均等付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HidariKintoSm#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip%
+\rubysep\ialign{##\crcr#1\hfill\crcr\small#2\crcr}}}
+
+\def\HidariKintoFn#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip%
+\rubysep\ialign{##\crcr#1\hfill\crcr\footnotesize#2\crcr}}}
+
+\def\HidariKintoSc#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip%
+\rubysep\ialign{##\crcr#1\hfill\crcr\scriptsize#2\crcr}}}
+
+\def\HidariKintoTn#1#2{\leavevmode\vtop{\baselineskip\z@skip \lineskip%
+\rubysep\ialign{##\crcr#1\hfill\crcr\tiny#2\crcr}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   左右肩付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\SayuuKataSm#1#2#3{\HidariKataSm{\MigiKataSm{#1}{#2}}{#3}}
+
+\def\SayuuKataFn#1#2#3{\HidariKataFn{\MigiKataFn{#1}{#2}}{#3}}
+
+\def\SayuuKataSc#1#2#3{\HidariKataSc{\MigiKataSc{#1}{#2}}{#3}}
+
+\def\SayuuKataTn#1#2#3{\HidariKataTn{\MigiKataTn{#1}{#2}}{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   左右中付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\SayuuNakaSm#1#2#3{\HidariNakaSm{\MigiNakaSm{#1}{#2}}{#3}}
+
+\def\SayuuNakaFn#1#2#3{\HidariNakaFn{\MigiNakaFn{#1}{#2}}{#3}}
+
+\def\SayuuNakaSc#1#2#3{\HidariNakaSc{\MigiNakaSc{#1}{#2}}{#3}}
+
+\def\SayuuNakaTn#1#2#3{\HidariNakaTn{\MigiNakaTn{#1}{#2}}{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   左右均等付き系
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\SayuuKintoSm#1#2#3{\HidariKintoSm{\MigiKintoSm{#1}{#2}}{#3}}
+
+\def\SayuuKintoFn#1#2#3{\HidariKintoFn{\MigiKintoFn{#1}{#2}}{#3}}
+
+\def\SayuuKintoSc#1#2#3{\HidariKintoSc{\MigiKintoSc{#1}{#2}}{#3}}
+
+\def\SayuuKintoTn#1#2#3{\HidariKintoTn{\MigiKintoTn{#1}{#2}}{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  旧 kunten2e.sty のルビ系コマンド
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\rubyii\MigiNakaTn
+
+\let\hidarirubyii\HidariNakaTn
+
+\let\ukun\MigiKataTn
+
+\let\sakun\HidariKataTn
+
+\let\kanjiukun\MigiKataSc
+
+\let\kanjisakun\HidariKataSc
+
+\let\kintoruby\MigiKintoTn
+
+\let\hidarikintoruby\HidariKintoTn
+
+\let\kanjikintoruby\MigiKintoSc
+
+\let\hidarikanjikintoruby\HidariKintoSc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  鈴木卓治氏追加コマンド
+
+\let\kanjiruby\MigiNakaSc
+
+% \rubyiii{本行}{ルビ}
+%   \rubyii と同じだが，ルビによって本行の文字間隔が乱されない
+%   ルビの大きさは \tiny
+%
+\def\rubyiii#1#2{\settowidth{\moziretuhaba}{\tiny #2}%
+	\settowidth{\moziretuhabaii}{#1}%
+	\divide\moziretuhaba by 2%
+	\divide\moziretuhabaii by 2%
+	\unskip%
+	\hspace{-\moziretuhaba}%
+	\hspace{\moziretuhabaii}
+	\unskip%
+	\raisebox{.8zw}{\tiny #2}
+	\unskip%
+	\hspace{-\moziretuhaba}%
+	\hspace{-\moziretuhabaii}
+	\unskip%
+	{#1}
+	\unskip%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  割り注系コマンド
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  \sougyousep 双行（二行割）の行間の設定
+%
+\setlength{\sougyousep}{.2ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  \sougyou
+%  二行割コマンド．行間は \sougyousep に長さを設定して調整できる．
+%  \sougyou{右行}{左行}
+%
+\def\sougyou#1#2{\settowidth{\moziretuhaba}{{\scriptsize #1}}%
+		\settowidth{\moziretuhabaii}{{\scriptsize #2}}
+		\ifdim\moziretuhaba<\moziretuhabaii 
+			\moziretuhaba=\moziretuhabaii \fi
+		\unskip%
+		\hskip\kanjiskip
+		\parbox{\moziretuhaba}{\baselineskip\z@skip \lineskip\sougyousep
+					{\scriptsize #1}\\
+                         	        {\scriptsize #2}
+			}\unskip
+		}
+
+%
+%  \tunogaki
+%  二行割コマンド．行間は \sougyousep に長さを設定して調整できる．
+%  \tunogaki{右行}{左行}
+%
+\def\kintokanjiskip{\kanjiskip=0pt plus 1fil minus 1fil%
+\xkanjiskip=\kanjiskip}
+
+\def\tunogaki#1#2{\settowidth{\moziretuhaba}{{\scriptsize #1}}%
+		\settowidth{\moziretuhabaii}{{\scriptsize #2}}
+		\ifdim\moziretuhaba<\moziretuhabaii 
+			\moziretuhaba=\moziretuhabaii \fi
+		\unskip%
+		\hskip\kanjiskip
+		\parbox{\moziretuhaba}{\baselineskip\z@skip \lineskip\sougyousep
+					{\scriptsize\kintokanjiskip #1}\\
+                         	        {\scriptsize\kintokanjiskip #2}
+			}\unskip
+		}
+
+%
+%  \hukusougyou
+%  副双行．双行中に，さらに双行を作る．
+%  \hukusougyou{右行}{左行}
+%
+\def\hukusougyou#1#2{\settowidth{\moziretuhaba}{{\tiny #1}}
+		\settowidth{\moziretuhabaii}{{\tiny #2}}
+		\ifdim\moziretuhaba<\moziretuhabaii 
+			\moziretuhaba=\moziretuhabaii \fi
+		\unskip%
+		\parbox{\moziretuhaba}{\raisebox{-.6ex}{\tiny #1}\\
+                         	        \raisebox{.6ex}{\tiny #2}
+			}
+		}
+%
+%  \sangyouwari
+%  三行割りを作る．
+%  \sangyouwari{右行}{中央行}{左行}
+%
+\def\sangyouwari#1#2#3{\settowidth{\moziretuhaba}{{\scriptsize #1}}
+		\unskip\settowidth{\moziretuhabaii}{{\scriptsize #2}}
+		\unskip\settowidth{\moziretuhabaiii}{{\scriptsize #3}}
+		\unskip\ifdim\moziretuhaba<\moziretuhabaii 
+			\moziretuhaba=\moziretuhabaii \fi
+		\unskip\ifdim\moziretuhaba<\moziretuhabaiii 
+			\moziretuhaba=\moziretuhabaiii \fi
+		\hskip\kanjiskip
+		\parbox{\moziretuhaba}{\raisebox{-.8zh}{\scriptsize #1}\\
+                         	        \mbox{\scriptsize #2}\\
+					\raisebox{.8zh}{\scriptsize #3}
+			}
+		}
+%
+%  \yongyouwari
+%  四行割りを作る．
+%  \yongyouwari{第１行}{第２行}{第３行}{第４行}
+%
+\def\yongyouwari#1#2#3#4{\settowidth{\moziretuhaba}{{\scriptsize #1}}
+		\unskip%
+		\begin{minipage}{\moziretuhaba}\scriptsize
+		#1
+		#2\\
+		#3\\
+                #4
+		\end{minipage}
+		}
+%
+%  \gogyouwari
+%  五行割りを作る．
+%  \yongyouwari{第１行}{第２行}{第３行}{第４行}{第５行}
+%
+\def\gogyouwari#1#2#3#4#5{\settowidth{\moziretuhaba}{{\scriptsize #1}}
+		\unskip%
+		\begin{minipage}{\moziretuhaba}\scriptsize
+		#1
+		#2\\
+		#3\\
+                #4\\
+		#5
+		\end{minipage}
+		}
+\def\sougyoux#1#2{\settowidth{\moziretuhaba}{{\scriptsize #1}}
+		\unskip%
+		\parbox{\moziretuhaba}{\raisebox{-.6ex}{\scriptsize #1}\\
+                         	        \raisebox{.6ex}{\scriptsize #2}
+			}
+		}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%  鈴木卓治氏の追加コマンド
+%
+%  \sougyouii
+%  二行割コマンド．行間は \sougyousep に長さを設定して調整できる．
+%  \sougyouii{右行}{左行}．文字の大きさは \small ．
+%
+\def\sougyouii#1#2{\settowidth{\moziretuhaba}{{\small #1}}%
+		\settowidth{\moziretuhabaii}{{\small #2}}%
+		\ifdim\moziretuhaba<\moziretuhabaii %
+			\moziretuhaba=\moziretuhabaii \fi%
+		\unskip%
+		\hskip\kanjiskip%
+		\parbox{\moziretuhaba}{\baselineskip\z@skip \lineskip\sougyousep%
+					{\small #1}\\%
+                         	        {\small #2}%
+			}\unskip%
+		}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    その他のコマンド
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  \miseketi
+%  ミセケチ．対象となる文字の左側に「゛」を付ける．
+%  \miseketi{対象となる文字}
+%
+\def\miseketi#1{\unskip%
+		\leavevmode%
+		\raisebox{-.5zw}{\ ゛}
+		\unskip%
+		\settowidth{\moziretuhaba}{\ ゛}
+		\hspace{-\moziretuhaba}
+		\unskip
+		#1
+		\unskip%
+		}
+%
+%  \miseketiii
+%  ミセケチ2．対象となる文字の左側に「゛」を付け，右側に訂正後の文字を付す．
+%  \miseketi{対象となる文字}{訂正後の文字}
+%
+\def\miseketiii#1#2{\settowidth{\moziretuhaba}{\tiny #2}
+		\unskip%
+		\raisebox{.8zw}{\tiny #2}
+		\unskip%
+		\hspace{-\moziretuhaba}
+		\unskip%
+		\raisebox{-.5zw}{\ ゛}
+		\unskip%
+		\settowidth{\moziretuhaba}{\ ゛}
+		\hspace{-\moziretuhaba}
+		\unskip%
+		#1
+		\unskip%
+}
+%
+%  \zityuu
+%  文字に対する注．対象となる文字の左側に「×」を付け，右側に注を付ける．
+%  \zityuu{対象となる文字}{注のテキスト}
+%
+\def\zityuu#1#2{\settowidth{\moziretuhaba}{\tiny #2}
+		\unskip%
+		\raisebox{.8zw}{\tiny #2}
+		\unskip%
+		\hspace{-\moziretuhaba}
+		\unskip%
+		\raisebox{-.6zw}{\tiny\ ×}
+		\unskip%
+		\settowidth{\moziretuhaba}{\tiny\ ×}
+		\hspace{-\moziretuhaba}
+		\unskip%
+		#1
+		\unskip%
+}
+%
+%  \zityuuii
+%  文字に対する注．対象となる文字の左側に「×」をつけるのみ．
+%  \zityuuii{対象となる文字}
+%
+\def\zityuuii#1{
+		\unskip%
+		\raisebox{-.6zw}{\tiny\ ×}
+		\unskip%
+		\settowidth{\moziretuhaba}{\tiny\ ×}
+		\hspace{-\moziretuhaba}
+		\unskip%
+		#1
+		\unskip%
+}
+\def\retenform{\kern1.1pt\raisebox{0ex}{\tiny --}\kern-4.5pt
+		\raisebox{.4ex}{\tiny ／}}
+%
+%  \reten
+%  レ点．フォントによってレ点の形が崩れる時は，上の \retenform の数値を
+%　調整してください．
+%
+\def\reten{\unskip\raisebox{-.8zw}{\retenform}\unskip}
+
+%\def\reten{\raisebox{-.5ex}{\tiny レ}}
+%
+%  \kaeriten
+%  各種返り点．返り点として使用する文字を引き数とする．
+%  \kaeriten{返り点として使用する文字}
+%
+\def\kaeriten#1{\unskip\raisebox{-.5ex}{\tiny#1}\unskip}
+%
+%  一点，二点，三点，上・中・下点，甲・乙・丙点．\kaeriten に文字を
+%  入れたもの．引き数なし．
+%
+\def\ititen{\kaeriten{一}}
+\def\niten{\kaeriten{二}}
+\def\santen{\kaeriten{三}}
+\def\zyouten{\kaeriten{上}}
+\def\tyuuten{\kaeriten{中}}
+\def\geten{\kaeriten{下}}
+\def\kouten{\kaeriten{甲}}
+\def\otuten{\kaeriten{乙}}
+\def\heiten{\kaeriten{丙}}
+%
+%  \retenkana
+%  レ点付き仮名．仮名を argument にとる．
+%  \retenkana{仮名}
+
+\def\retenkana#1{\settowidth{\moziretuhaba}{{\tiny #1}}%
+		\settowidth{\moziretuhabaii}{\retenform}
+		\ifdim\moziretuhaba<\moziretuhabaii 
+			\moziretuhaba=\moziretuhabaii \fi
+		\unskip%
+		\hskip\kanjiskip
+		\parbox{\moziretuhaba}{
+			\raisebox{-.7ex}{\tiny #1}\\
+		\raisebox{.2ex}{\retenform}
+			}
+		\unskip
+		}
+%
+%  \kokana
+%  返り点付き仮名．第一 argument に仮名，第ニ argument に一，二など．
+%  \kokana{仮名}{返り点として使用する文字}
+%
+\def\kokana#1#2{\settowidth{\moziretuhaba}{{\tiny #1}}%
+		\settowidth{\moziretuhabaii}{{\tiny #2}}
+		\ifdim\moziretuhaba<\moziretuhabaii 
+			\moziretuhaba=\moziretuhabaii \fi
+		\unskip%
+		\hskip\kanjiskip
+		\parbox{\moziretuhaba}{\raisebox{-.7ex}{\tiny #1}\\
+                         	        \raisebox{.7ex}{\tiny #2}
+			}
+		\unskip
+		}
+
+
+\def\hyousyou#1{#1\raisebox{-.5ex}{\tiny （声点・平）}}
+%
+%  \migikogaki
+%  右小書き．
+%  細字による注，本行に対し，やや右寄りに付ける．
+%  \migikogaki{注とするテキスト}
+%
+\def\migikogaki#1{\raisebox{.5ex}{\scriptsize #1}}
+%
+%  \migikogakiii
+%  双行の中の右小書き
+%
+\def\migikogakiii#1{\raisebox{.5ex}{\tiny #1}}
+%
+%  \odorii
+%  踊り１．漢字用踊り字。
+%
+    \def\odorii{\leavevmode\kern.15zw\raise0.1zh\hbox{\fontsize{9pt}{12}\selectfont ゝ}%
+    \kern-.38zw\raise.15zh\hbox{\fontsize{10pt}{12}\selectfont ヽ}\kern.2zw}
+%
+%  \odorihuku
+%  複数文字の踊り字。「／＼」
+%
+\def\odorihuku{\rensuji{$/$}\unskip\hspace{-.25zw}\rensuji{$\backslash$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    鈴木卓治氏の追加コマンド
+%
+%
+% \marusounyuu{文字列} 
+%   小丸を書いてその脇に文字列を挿入する
+%   文字の大きさは \scriptsize
+%
+\def\marusounyuu#1{\settowidth{\moziretuhaba}{\scriptsize #1}%
+	\settowidth{\moziretuhabaii}{\scriptsize $\circ$}%
+	\divide\moziretuhaba by 2%
+	\divide\moziretuhabaii by 2%
+	\unskip%
+	\hspace{-\moziretuhaba}%
+	\hspace{\moziretuhabaii}
+	\unskip%
+	\raisebox{.8zw}{\scriptsize #1}%
+	\unskip%
+	\hspace{-\moziretuhaba}%
+	\hspace{-\moziretuhabaii}
+	\unskip%
+	{\scriptsize $\circ$}%
+	\unskip%
+}
+%
+%
+% \tinymarusounyuu{文字列} 
+%   小丸を書いてその脇に文字列を挿入する
+%   文字の大きさは \tiny
+%
+\def\tinymarusounyuu#1{\settowidth{\moziretuhaba}{\tiny #1}%
+	\settowidth{\moziretuhabaii}{\scriptsize $\circ$}%
+	\divide\moziretuhaba by 2%
+	\divide\moziretuhabaii by 2%
+	\unskip%
+	\hspace{-\moziretuhaba}%
+	\hspace{\moziretuhabaii}
+	\unskip%
+	\raisebox{.8zw}{\tiny #1}%
+	\unskip%
+	\hspace{-\moziretuhaba}%
+	\hspace{-\moziretuhabaii}
+	\unskip%
+	{\scriptsize $\circ$}%
+	\unskip%
+}
+%
+% \kaou
+%    「(花押) 」と入れる
+%
+\def\kaou{\makebox[3zw][c]{\footnotesize (花押)}}
+%
+% \sounyuu{文字列} 
+%   脇に文字列を挿入する．文字の大きさは \scriptsize
+%
+\def\sounyuu#1{\settowidth{\moziretuhaba}{\scriptsize #1}%
+	\divide\moziretuhaba by 2%
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+	\raisebox{.8zw}{\scriptsize #1}%
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+}
+%
+% \tinysounyuu{文字列} 
+%   脇に文字列を挿入する．文字の大きさは \tiny
+%
+\def\tinysounyuu#1{\settowidth{\moziretuhaba}{\tiny #1}%
+	\divide\moziretuhaba by 2 %
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+	\raisebox{.8zw}{\tiny #1}%
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+}
+%
+% \kanagaki{文字列} 
+%   カタカナ書き．\sougyou を利用する．
+%
+\def\kanagaki#1{\sougyou{#1}{　}}
+%
+% \ryakuou
+%    「（略押）」と入れる
+%
+\def\ryakuou{\makebox[3zw][c]{\footnotesize (略押)}}
+%
+%  \hidarikogaki
+%  左小書き．
+%  細字による注，本行に対し，やや左寄りに付ける．
+%  \migikogaki{注とするテキスト}
+%
+\def\hidarikogaki#1{\raisebox{-.4zw}{\scriptsize #1}}
+%
+% \hidarisounyuu{文字列} 
+%   左脇に文字列を挿入する．文字の大きさは \scriptsize
+%
+\def\hidarisounyuu#1{\settowidth{\moziretuhaba}{\scriptsize #1}%
+	\divide\moziretuhaba by 2%
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+	\raisebox{-.8zw}{\scriptsize #1}%
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+}
+%
+% \hidaritinysounyuu{文字列} 
+%   左脇に文字列を挿入する．文字の大きさは \tiny
+%
+\def\hidaritinysounyuu#1{\settowidth{\moziretuhaba}{\tiny #1}%
+	\divide\moziretuhaba by 2%
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+	\raisebox{-.8zw}{\tiny #1}%
+	\unskip%
+	\hspace{-\moziretuhaba}
+	\unskip%
+}
+
+%
+%  \nagahako
+%  長い箱
+%
+
+\long\def\nagahako#1{\leavevmode\setbox\@tempboxa\hbox{#1}\@tempdima\fboxrule%
+    \advance\@tempdima \dp\@tempboxa%
+   \hbox{\lower \@tempdima\hbox%
+  {\vbox{\hrule \@height \fboxrule%
+          \hbox{\vrule \@width \fboxrule%
+          \vbox{\box\@tempboxa}%
+                 \vrule \@width \fboxrule}%
+                 \hrule \@height \fboxrule}}}}
+                 
+%
+%  \ukekakenagahako
+%  上懸け長箱
+%
+\long\def\uekakenagahako#1{\leavevmode\setbox\@tempboxa\hbox{#1}\@tempdima\fboxrule%
+    \advance\@tempdima \dp\@tempboxa%
+   \hbox{\lower \@tempdima\hbox%
+  {\vbox{\hrule \@height \fboxrule%
+          \hbox{%
+          \vbox{\box\@tempboxa}%
+                 \vrule \@width \fboxrule}%
+                 \hrule \@height \fboxrule}}}}
+%
+%  \sitakakenagahako
+%  下懸け長箱
+%
+\long\def\sitakakenagahako#1{\leavevmode\setbox\@tempboxa\hbox{#1}\@tempdima\fboxrule%
+    \advance\@tempdima \dp\@tempboxa%
+   \hbox{\lower \@tempdima\hbox%
+  {\vbox{\hrule \@height \fboxrule%
+          \hbox{\vrule \@width \fboxrule%
+          \vbox{\box\@tempboxa}}%
+                 \hrule \@height \fboxrule}}}}

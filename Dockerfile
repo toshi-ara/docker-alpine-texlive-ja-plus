@@ -4,7 +4,6 @@ ENV TEXMFSTYDIR=/usr/local/texlive/texmf-local/tex/platex
 ENV TEXMFDOCDIR=/usr/local/texlive/texmf-local/doc
 ENV TEXMFFONTDIR=/usr/local/texlive/texmf-local/fonts
 
-
 RUN apk --no-cache add ghostscript wget lha tar xz && \
     tlmgr update --self --all && \
     tlmgr install ccicons newtx siunitx stix \

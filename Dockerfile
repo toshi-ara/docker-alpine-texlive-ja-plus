@@ -1,4 +1,5 @@
 FROM toshiara/alpine-texlive-ja:2020
+LABEL lastupdate=2020.9.30
 
 ENV TEXMFSTYDIR=/usr/local/texlive/texmf-local/tex/platex
 ENV TEXMFDOCDIR=/usr/local/texlive/texmf-local/doc

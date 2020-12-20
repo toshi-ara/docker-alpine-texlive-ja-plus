@@ -1,14 +1,17 @@
-FROM toshiara/alpine-texlive-ja:2020
-LABEL lastupdate=2020.9.30
+FROM toshiara/alpine-texlive-ja:2020.12.20
+LABEL lastupdate=2020.12.20
 
 ENV TEXMFSTYDIR=/usr/local/texlive/texmf-local/tex/platex
 ENV TEXMFDOCDIR=/usr/local/texlive/texmf-local/doc
 ENV TEXMFFONTDIR=/usr/local/texlive/texmf-local/fonts
 
-RUN apk --no-cache add ghostscript wget lha tar xz && \
-    tlmgr update --self --all && \
-    tlmgr install ccicons newtx siunitx stix \
-          esvect mathabx multido ulem yhmath
+RUN tlmgr update --self --all && \
+    tlmgr install ccicons fourier fouriernc inconsolata \
+                  lxfonts newtx newtxsf newpx noto opensans \
+                  siunitx stix yhmath \
+                  libertine libertinus-fonts libertinus-type1 libertinust1math \
+                  stix2-otf stix2-type1 Asana-Math xits \
+                  esvect mathabx multido ulem
 
 COPY emath .
 

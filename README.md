@@ -18,7 +18,9 @@ $ sudo ./build.sh
 ## Usage
 
 ```bash
-$ docker run --rm -it -v ${PWD}:/workdir toshiara/alpine-texlive-ja-plus platex --version
+$ docker run --rm -u `id -u`:`id -g`  -v $(pwd):/workdir toshiara/alpine-texlive-ja-plus uplatex main.tex
+$ docker run --rm -u `id -u`:`id -g` -v $(pwd):/workdir toshiara/alpine-texlive-ja-plus xelatex main.tex
+$ docker run --rm -v $(pwd):/workdir -v ltcache2020:/usr/local/texlive/2020/texmf-var/luatex-cache toshiara/alpine-texlive-ja-plus lualatex main.tex
 ```
 
 ## License

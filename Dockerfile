@@ -1,5 +1,5 @@
-FROM toshiara/alpine-texlive-ja:2020.12.20
-LABEL lastupdate=2020.12.20
+FROM toshiara/alpine-texlive-ja:2021.5.1
+LABEL lastupdate=2021.5.1
 
 ENV TEXMFSTYDIR=/usr/local/texlive/texmf-local/tex/platex
 ENV TEXMFDOCDIR=/usr/local/texlive/texmf-local/doc
@@ -11,7 +11,8 @@ RUN tlmgr update --self --all && \
                   siunitx stix yhmath \
                   libertine libertinus-fonts libertinus-type1 libertinust1math \
                   stix2-otf stix2-type1 Asana-Math xits \
-                  esvect mathabx multido ulem
+                  esvect mathabx multido ulem \
+                  selnolig
 
 COPY emath .
 
